@@ -53,7 +53,7 @@ drvModbusAsynConfigure(  "Setra$$(INDEX)_read_reg", "SETRA$$INDEX",  247,   3,  
 
 # Send trace output to motor specific log files
 #asynSetTraceFile(   "SETRA$$INDEX", 0, "/reg/d/iocData/$(IOC)/logs/SETRA$$INDEX.log" )
-#asynSetTraceFile(   "SETRA$$(INDEX)_Read)", 0, "/reg/d/iocData/$(IOC)/logs/SETRA$$(INDEX)_Read).log" )
+#asynSetTraceFile(   "SETRA$$(INDEX)_Read", 0, "/reg/d/iocData/$(IOC)/logs/SETRA$$(INDEX)_Read.log" )
 $$ENDLOOP(SETRA)
 
 # Load record instances
