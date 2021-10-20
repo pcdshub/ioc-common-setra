@@ -1,0 +1,8 @@
+# setra IOC instance autosave file
+
+$$LOOP(SETRA)
+file setra.archive
+{
+	{ IOC = "$$IOC_PV", BASE="$$BASE" }
+}
+$$ENDLOOP(SETRA)
