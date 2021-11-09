@@ -1,0 +1,28 @@
+record(longin, $(DEV):CH$(CH)_ENABLE)
+{       
+        field(DTYP, "asynInt32")
+        field(INP, "@asyn(Setra$(N)_chan_en,$(CH))UINT16")
+        field(SCAN, "5 second")
+        field(FLNK, "$(DEV):CH$(CH)_SIZE")
+}
+
+record(ai, $(DEV):CH$(CH)_SIZE)
+{       
+        field(DTYP, "asynFloat64")
+        field(INP,  "@asyn(Setra$(N)_chan_size,$(TCH))FLOAT32_LE")
+        field(SCAN, "5 second")
+	field(EGU,  "u")
+        field(PREC, "1")
+        field(FLNK, "$(DEV):CH$(CH)_SIZE")
+}
+
+record(ai, $(DEV):CH$(CH)_MASS)
+{       
+        field(DTYP, "asynFloat64")
+        field(INP, "@asyn(Setra$(N)_chan_pm,$(TCH))FLOAT32_LE")
+        field(SCAN, "5 second")
+	field(EGU,  "ug/m^3")
+        field(PREC, "3")
+        field(FLNK, "$(LINK)")
+}
+

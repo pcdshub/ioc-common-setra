@@ -18,7 +18,6 @@ setra_DBD += base.dbd
 setra_DBD += iocAdmin.dbd
 setra_DBD += asSupport.dbd
 setra_DBD += asyn.dbd
-setra_DBD += stream.dbd
 setra_DBD += modbus.dbd
 setra_DBD += modbusSupport.dbd
 setra_DBD += caPutLog.dbd
@@ -29,9 +28,6 @@ setra_SRCS_DEFAULT += setraMain.cpp
 
 # Add locally compiled object code
 #setra_SRCS += dbSubExample.c
-
-setra_LIBS += stream
-#setra_LIBS += calc
 
 setra_LIBS += autosave
 setra_LIBS += devIocStats

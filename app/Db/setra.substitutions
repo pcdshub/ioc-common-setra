@@ -1,0 +1,14 @@
+file setra_global.template {
+    { DEV = "$(DEV)" }
+}
+
+file setra_channel.template {
+    pattern
+    { DEV,      CH,   TCH,  LINK }
+    { "$(DEV)", "0", "0",  "$(DEV):CH1_ENABLE" }
+    { "$(DEV)", "1", "2"   "$(DEV):CH2_ENABLE" }
+    { "$(DEV)", "2", "4"   "$(DEV):CH3_ENABLE" }
+    { "$(DEV)", "3", "6"   "$(DEV):CH4_ENABLE" }
+    { "$(DEV)", "4", "8"   "$(DEV):CH5_ENABLE" }
+    { "$(DEV)", "5", "10"  "$(DEV):TOT_MASS" }
+}

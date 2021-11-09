@@ -6,4 +6,8 @@ file autosave_iocAdmin.tpl-req
 	}
 }
 
-# TODO: Add your custom template expansions here
+file setra.tpl-req
+{
+    { BASE=$(BASE) }
+}
+

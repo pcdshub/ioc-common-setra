@@ -1,0 +1,339 @@
+# Records for Setra AQI
+# Macros:
+#     DEV - PV basename
+#     N   - Setra device index
+
+record(bo, $(DEV):PUMP_STATE)
+{
+	#field(DESC, "Sets to 1 to turn on pump/starts collecting particle count")
+	field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,0)UINT16")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+        field(SCAN, "Passive")
+        field(VAL, "1")
+}
+
+record(longin, $(DEV):NUM_CHANNELS)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_chan_cnt,0)UINT16")
+        field(SCAN, "5 second")
+}
+
+record(mbbi, $(DEV):SAMP_STATE)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,0)UINT16")
+	field(ZRVL, "0")
+	field(ZRST, "Stopped")
+	field(ONVL, "10")
+	field(ONST, "Delay")
+	field(TWVL, "2")
+	field(TWST, "Counting")
+	field(THVL, "3")
+	field(THST, "Hold")
+        field(SCAN, "5 second")
+}
+
+record(longin, $(DEV):STATUS)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,1)UINT16")
+        field(SCAN, "5 second")
+}
+
+record(longout, $(DEV):PERIODS)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,2)UINT16")
+	field(VAL, "0")
+}
+
+record(longin, $(DEV):PERIODS_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,2)UINT16")
+        field(SCAN, "5 second")
+}
+
+record(longout, $(DEV):DELAY_TIME)
+{
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,3)UINT16")
+	field(VAL,  "4")
+}
+
+record(longin, $(DEV):DELAY_TIME_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,3)INT32_LE")
+        field(SCAN, "5 second")
+	field(EGU,  "s")
+}
+
+record(longout, $(DEV):SAMPLE_TIME)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,5)INT32_LE")
+	field(EGU,  "s")
+	field(VAL,  "60")
+}
+
+record(longin, $(DEV):SAMPLE_TIME_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,5)INT32_LE")
+	field(EGU,  "s")
+        field(SCAN, "5 second")
+}
+
+record(longout, $(DEV):HOLD_TIME)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,7)INT32_LE")
+	field(EGU,  "s")
+	field(VAL,  "0")
+}
+
+record(longin, $(DEV):HOLD_TIME_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,7)INT32_LE")
+	field(EGU,  "s")
+        field(SCAN, "5 second")
+}
+
+record(mbbo, $(DEV):SAMPLE_MODE)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,9)INT32_LE")
+	field(ZRVL, "0")
+	field(ZRST, "Auto")
+	field(ONVL, "1")
+	field(ONST, "Manual")
+	field(TWVL, "2")
+	field(TWST, "RT Meter")
+	field(VAL,  "0")
+}
+
+record(mbbi, $(DEV):SAMPLE_MODE_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,9)INT32_LE")
+	field(ZRVL, "0")
+	field(ZRST, "Auto")
+	field(ONVL, "1")
+	field(ONST, "Manual")
+	field(TWVL, "2")
+	field(TWST, "RT Meter")
+        field(SCAN, "5 second")
+}
+
+record(bo, $(DEV):MASS_MODE)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,13)UINT16")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+	field(VAL,  "1")
+}
+
+record(bi, $(DEV):MASS_MODE_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,13)UINT16")
+        field(SCAN, "5 second")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+record(bo, $(DEV):RECIPE_MODE)
+{       
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,14)UINT16")
+	field(ZNAM, "Off")
+        field(ONAM, "On")
+	field(VAL,  "0")
+}
+
+record(bi, $(DEV):RECIPE_MODE_RBV)
+{       
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_samp_read,14)UINT16")
+        field(SCAN, "5 second")
+	field(ZNAM, "Off")
+        field(ONAM, "On")
+}
+
+#
+# Start of data read chain!  We need to do this first... otherwise, we
+# will have stale data!
+#
+# This can be changed to read an arbitrary record in memory.  But
+# we probably -1 (the last record) or 0 (the currently counting record).
+#
+record(mbbo, $(DEV):RECORD_REQ)
+{       
+	#field(DESC, "Sets reg 8002 to -1 to read 9000 registers")
+        field(DTYP, "asynInt32")
+        field(OUT,  "@asyn(Setra$(N)_set_write,2)INT32_LE")
+        field(SCAN, "5 second")
+	field(ZRVL, "0")
+	field(ZRST, "Current")
+	field(ONVL, "-1")
+	field(ONST, "Last")
+        field(VAL,  "1")
+        field(FLNK, "$(DEV):RNUM")
+}
+
+record(longin, $(DEV):RNUM)
+{
+	#field(DESC, "Reads current # of record stored")
+	field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_data_read,0)INT32_LE")
+        field(SCAN, "Passive")
+        field(FLNK, "$(DEV):SAMP_STATUS")
+}
+
+record(longin, $(DEV):SAMP_STATUS)
+{
+	#field(DESC, "Reads sample status 0x7f=normal")
+	field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_data_read,78)UINT16")
+        field(SCAN, "Passive")
+        field(FLNK, "$(DEV):TEMP_RAW")
+}
+
+record(longin, $(DEV):TEMP_RAW)
+{       
+	#field(DESC, "reads temperaturereg 9079")
+        field(DTYP, "asynInt32")
+        field(INP,  "@asyn(Setra$(N)_data_read,79)UINT16")
+        field(SCAN, "Passive")
+        field(FLNK, "$(DEV):RH")
+}
+
+record(longin, $(DEV):RH)
+{	
+	#field(DESC, "Reads Humidity register 9080")
+        field(DTYP,  "asynInt32")
+        field(INP,   "@asyn(Setra$(N)_data_read,80)UINT16")
+        field(SCAN,  "Passive")
+	field(EGU,   "%")
+        field(FLNK,  "$(DEV):BP_RAW")
+}
+
+record(ai, $(DEV):BP_RAW)
+{
+	#field(DESC, "Reads Barometric register 9082")
+        field(DTYP, "asynFloat64")
+        field(INP,  "@asyn(Setra$(N)_data_read,82)FLOAT32_BE")
+        field(SCAN, "Passive")
+	field(PREC, "7")
+        field(FLNK, "$(DEV):BP")
+}
+
+record(calc, $(DEV):BP)
+{
+        #field(DESC, "Barometric to mbar")
+        field(INPA, "$(DEV):BP_RAW NPP NMS")
+        field(SCAN, "Passive")
+        field(CALC, "A*10")
+	field(EGU, "mbar")
+	field(PREC, "2")
+        field(FLNK, "$(DEV):TEMP")
+}
+
+record(calc, $(DEV):TEMP)
+{
+        field(DESC, "converts raw to deg C")
+        field(INPA, "$(DEV):TEMP_RAW NPP NMS")
+        field(CALC, "A*0.1")
+       	field(EGU,  "C")
+	field(SCAN, "Passive")
+	field(PREC, "1")
+        field(FLNK, "$(DEV):DATE")
+}
+
+record(stringin, $(DEV):DATE)
+{	
+	#field(DESC, "Reads Date register 9002")
+        field(DTYP, "asynOctetRead")
+        field(INP,  "@asyn(Setra$(N)_data_read,2)STRING_LOW")
+        field(SCAN, "Passive")
+        field(FLNK, "$(DEV):TIME")
+}
+
+record(stringin, $(DEV):TIME)
+{
+	#field(DESC, "Reads time of record at register 9013")
+        field(DTYP, "asynOctetRead")
+        field(INP,  "@asyn(Setra$(N)_data_read,13)STRING_LOW")
+        field(SCAN, "Passive")
+        field(FLNK, "$(DEV):TVOC")
+}
+
+record(longin, $(DEV):TVOC)
+{
+	#field(DESC, "Reads total volitile organ chem at register 9084 *Only on AQI series device")
+        field(DTYP,  "asynInt32")
+        field(INP,   "@asyn(Setra$(N)_data_read,84)UINT16")
+        field(SCAN,  "Passive")
+	field(EGU,   "ppb")
+        field(FLNK, "$(DEV):CO2")
+}
+
+record(longin, $(DEV):CO2)
+{
+	#field(DESC, "Reads CO2 at register 9083")
+        field(DTYP,  "asynInt32")
+        field(INP,   "@asyn(Setra$(N)_data_read,83)UINT16")
+        field(SCAN,  "Passive")
+	field(EGU,   "ppm")
+        field(FLNK, "$(DEV):FLOW_RATE")
+}
+
+record(ai, $(DEV):FLOW_RATE)
+{
+	#field(DESC, "Reads flow rate at register 9076")
+        field(DTYP,  "asynFloat64")
+        field(INP,   "@asyn(Setra$(N)_data_read,76)FLOAT32_LE")
+        field(SCAN,  "Passive")
+	field(EGU,   "cfm")
+	field(PREC, "3")
+        field(FLNK, "$(DEV):SAMPLE_DURATION")
+}
+
+record(ai, $(DEV):SAMPLE_DURATION)
+{
+	#field(DESC, "Reads duration at register 9074")
+        field(DTYP,  "asynFloat64")
+        field(INP,   "@asyn(Setra$(N)_data_read,74)FLOAT32_LE")
+        field(SCAN,  "Passive")
+	field(EGU,   "s")
+	field(PREC, "2")
+        field(FLNK, "$(DEV):CH0_TO_4_TOT_MASS")
+}
+
+record(ai, $(DEV):CH0_TO_4_TOT_MASS)
+{
+       #field(DESC, "Reads TPM on CH0-4")
+       field(DTYP,  "asynFloat64")
+       field(INP,   "@asyn(Setra$(N)_chan_tpm,10)FLOAT32_LE")
+       field(SCAN,  "Passive")
+       field(EGU,   "ug/m^3")
+       field(FLNK, "$(DEV):CH0_ENABLE")
+       field(PREC, "3")
+}
+
+record(calc, $(DEV):TOT_MASS)
+{
+       field(INPA, "$(DEV):CH0_TO_4_TOT_MASS NPP NMS")
+       field(INPB, "$(DEV):CH5_MASS NPP NMS")
+       field(SCAN, "Passive")
+       field(CALC, "A+B")
+       field(PREC, "3")
+       field(EGU,   "ug/m^3")
+}
+
