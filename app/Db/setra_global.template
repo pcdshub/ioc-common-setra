@@ -60,7 +60,7 @@ record(longin, $(DEV):PERIODS_RBV)
 record(longout, $(DEV):DELAY_TIME)
 {
         field(DTYP, "asynInt32")
-        field(OUT,  "@asyn(Setra$(N)_samp_write,3)UINT16")
+        field(OUT,  "@asyn(Setra$(N)_samp_write,3)INT32_LE")
 	field(VAL,  "4")
 }
 
