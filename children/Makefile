@@ -1,3 +1,3 @@
 # SLAC PCDS Makefile for building templated IOC instances
 IOC_CFG  += $(wildcard *.cfg)
-include /reg/g/pcds/controls/macro/RULES_EXPAND
+include $(PACKAGE_SITE_TOP)/ioc-template-macros/latest/RULES_EXPAND
